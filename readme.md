@@ -11,3 +11,7 @@ Model
 View
 
 Controller
+
+nodemon:
+
+- Nodemon is a utility that automatically restarts your Node.js application when it detects changes in the source code. It helps developers save time by eliminating the need to manually stop and restart the server every time they make changes to their code. Nodemon can be installed globally or as a development dependency in your project.
