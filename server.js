@@ -1,18 +1,14 @@
-const http = require('node:http');
+// import express
+const express = require('express');
 
-// create server
-const server = http.createServer((request, response) => {
-  console.log('request received...');
-  console.log(request.method, request.url);
-  
-  response.writeHead(200, {
-    'Content-Type': 'application/json'
-  });
-  // prepare a response
-  response.end(JSON.stringify({ message: 'hello world!' }));
+// create an express application
+const app = express();
+
+app.get('/', (request, response) => {
+  response.send({ message: 'hello' });
 });
 
-// server start
-server.listen(3001, 'localhost', () => {
-  console.log('Server is running at localhost:3001');
+// start the server
+app.listen(3001, 'localhost', () => {
+  console.log('Server is running at http://localhost:3001');
 });
