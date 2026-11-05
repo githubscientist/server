@@ -1,0 +1,30 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "backend repository for fsdcwdtb75",
+  "keywords": [
+    "nodejs",
+    "expressjs",
+    "mongoose",
+    "mongodb",
+    "restful",
+    "api",
+    "rest"
+  ],
+  "homepage": "https://github.com/githubscientist/server#readme",
+  "bugs": {
+    "url": "https://github.com/githubscientist/server/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/githubscientist/server.git"
+  },
+  "license": "ISC",
+  "author": "Sathish Gnanaprakasam",
+  "type": "commonjs",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  }
+}
