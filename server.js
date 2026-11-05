@@ -1,12 +1,4 @@
-// import express
-const express = require('express');
-
-// create an express application
-const app = express();
-
-app.get('/', (request, response) => {
-  response.send({ message: 'hello' });
-});
+const app = require("./app");
 
 // start the server
 app.listen(3001, 'localhost', () => {
