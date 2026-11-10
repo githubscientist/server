@@ -69,6 +69,20 @@ const todoController = {
             response.status(500).json({ 'message': 'Error in updating todo...' });
         }
     },
+    deleteTodo: async (request, response) => {
+        try {
+            // get the id from the request params
+            const { id } = request.params;
+
+            // delete todo from the database
+            await Todo.findByIdAndDelete(id);
+
+            // return the todo as a response
+            response.status(200).json({ 'message': 'Todo deleted...' });
+        } catch (error) {
+            response.status(500).json({ 'message': 'Error in updating todo...' });
+        }
+    },
 }
 
 module.exports = todoController;
