@@ -1,16 +1,16 @@
 const app = require("./app");
 const mongoose = require('mongoose');
-require('dotenv').config();
+const { MONGODB_URI, PORT, HOST } = require("./utils/config");
 
 // connect to the database
 mongoose
-  .connect(process.env.MONGODB_URI)
+  .connect(MONGODB_URI)
   .then(() => {
     console.log('Connected to database');
 
     // start the server
-    app.listen(process.env.PORT, process.env.HOST, () => {
-      console.log(`Server is running at http://localhost:${process.env.PORT}`);
+    app.listen(PORT, HOST, () => {
+      console.log(`Server is running at http://localhost:${PORT}`);
     });
   })
   .catch(error => {
