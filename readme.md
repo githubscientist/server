@@ -26,3 +26,19 @@ Create: The process of adding new data to a database or data store.
 Read: The process of retrieving data from a database or data store.
 Update: The process of modifying existing data in a database or data store.
 Delete: The process of removing data from a database or data store.
+
+Status Codes:
+
+1xx: Informational responses (e.g., 100 Continue)
+2xx: Successful responses (e.g., 200 OK, 201 Created)
+3xx: Redirection messages (e.g., 301 Moved Permanently, 302 Found)
+4xx: Client error responses (e.g., 400 Bad Request, 404 Not Found)
+5xx: Server error responses (e.g., 500 Internal Server Error, 503 Service Unavailable)
+
+200 OK: The request was successful, and the server returned the requested data.
+201 Created: The request was successful, and a new resource was created as a result.
+400 Bad Request: The server could not understand the request due to invalid syntax.
+404 Not Found: The server could not find the requested resource.
+500 Internal Server Error: The server encountered an unexpected condition that prevented it from fulfilling the request.
+503 Service Unavailable: The server is currently unable to handle the request due to temporary overload or maintenance.
+403 Forbidden: The server understood the request but refuses to authorize it.
