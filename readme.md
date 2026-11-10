@@ -15,3 +15,7 @@ Controller
 nodemon:
 
 - Nodemon is a utility that automatically restarts your Node.js application when it detects changes in the source code. It helps developers save time by eliminating the need to manually stop and restart the server every time they make changes to their code. Nodemon can be installed globally or as a development dependency in your project.
+
+dotenv:
+
+- Dotenv is a zero-dependency module that loads environment variables from a .env file into process.env. It allows developers to manage configuration settings and sensitive information (like API keys and database credentials) in a separate file, keeping them out of the source code. This makes it easier to manage different environments (development, testing, production) and enhances security by preventing sensitive data from being exposed in the codebase.
