@@ -49,6 +49,26 @@ const todoController = {
         }
     },
 
+    updateTodo: async (request, response) => {
+        try {
+            // get the id from the request params
+            const { id } = request.params;
+
+            // get the data to update from the request body
+            const { title, description, isDone } = request.body;
+
+            // update in the database
+            const updatedTodo = await Todo.findByIdAndUpdate(id, {
+                title,
+                description,
+                isDone
+            }, { new: true });
+            // return the todo as a response
+            response.status(200).json(updatedTodo);
+        } catch (error) {
+            response.status(500).json({ 'message': 'Error in updating todo...' });
+        }
+    },
 }
 
 module.exports = todoController;
