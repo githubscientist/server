@@ -25,7 +25,30 @@ const todoController = {
         } catch (error) {
             response.status(500).json({ 'message': 'Error in fetching todo by id...' });
         }
-    }
+    },
+
+    createTodo: async (request, response) => {
+        try {
+            // get the data from the request body
+            const { title, description, isDone } = request.body;
+
+            // create a new todo item
+            const newTodo = new Todo({
+                title,
+                description,
+                isDone
+            });
+
+            // save to the database
+            const todo = await newTodo.save();
+
+            // return the todo as a response
+            response.status(200).json(todo);
+        } catch (error) {
+            response.status(500).json({ 'message': 'Error in creating a new todo...' });
+        }
+    },
+
 }
 
 module.exports = todoController;
