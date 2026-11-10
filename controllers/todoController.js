@@ -10,6 +10,21 @@ const todoController = {
         } catch (error) {
             response.status(500).json({ 'message': 'Error in fetching todos...' });
         }
+    },
+
+    getTodoByID: async (request, response) => {
+        try {
+            // get the id from the request object
+            const { id } = request.params;
+            
+            // get the todo for the id from the database
+            const todo = await Todo.findById(id);
+
+            // return the todo as a response
+            response.status(200).json(todo);
+        } catch (error) {
+            response.status(500).json({ 'message': 'Error in fetching todo by id...' });
+        }
     }
 }
 
