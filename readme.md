@@ -19,3 +19,10 @@ nodemon:
 dotenv:
 
 - Dotenv is a zero-dependency module that loads environment variables from a .env file into process.env. It allows developers to manage configuration settings and sensitive information (like API keys and database credentials) in a separate file, keeping them out of the source code. This makes it easier to manage different environments (development, testing, production) and enhances security by preventing sensitive data from being exposed in the codebase.
+
+CRUD Operations:
+
+Create: The process of adding new data to a database or data store.
+Read: The process of retrieving data from a database or data store.
+Update: The process of modifying existing data in a database or data store.
+Delete: The process of removing data from a database or data store.
