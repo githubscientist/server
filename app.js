@@ -2,6 +2,7 @@
 const express = require('express');
 const todoRouter = require('./routes/todoRoutes');
 const bodyParser = require('body-parser');
+const logger = require('./middlewares/logger');
 
 // create an express application
 const app = express();
@@ -14,7 +15,13 @@ const app = express();
 // parse using body-parser library
 app.use(bodyParser.json());
 
+// request process begins or recieved request
+// log the incoming requests
+app.use(logger);
+
 // then send the request to the matching routes
 app.use('/todos', todoRouter);
+
+// error handling middleware
 
 module.exports = app;
