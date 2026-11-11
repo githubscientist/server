@@ -42,3 +42,21 @@ Status Codes:
 500 Internal Server Error: The server encountered an unexpected condition that prevented it from fulfilling the request.
 503 Service Unavailable: The server is currently unable to handle the request due to temporary overload or maintenance.
 403 Forbidden: The server understood the request but refuses to authorize it.
+
+Middleware: 
+
+- Middleware functions are functions that have access to the request object (req), the response object (res), and the next middleware function in the application’s request-response cycle. They can execute code, make changes to the request and response objects, end the request-response cycle, or call the next middleware function. Middleware is commonly used for tasks such as logging, authentication, error handling, and parsing request bodies.
+
+incoming request -> middleware 1 (ex: request body parser) -> middleware 2 (ex: authentication) -> route handler -> response
+
+1. Built-In Middleware - Express.js comes with several built-in middleware functions that can be used to handle common tasks. Some of the built-in middleware includes:
+  - express.json(): Parses incoming requests with JSON payloads.
+  - express.static(): Serves static files from a specified directory.
+2. Third-party middleware 
+    - body-parser: Parses incoming request bodies in a middleware before your handlers, available under the req.body property.
+    - cookie-parser: Parses Cookie header and populates req.cookies with an object keyed by the cookie names.
+    - cors: Enables Cross-Origin Resource Sharing (CORS) for your Express.js application, allowing you to specify which domains are allowed to access your resources.
+3. Custom middleware 
+    - logging
+    - authentication
+    - error handling

@@ -29,6 +29,8 @@ const todoController = {
 
     createTodo: async (request, response) => {
         try {
+            // console.log(request.body);
+
             // get the data from the request body
             const { title, description, isDone } = request.body;
 
