@@ -4,6 +4,7 @@ const todoRouter = require('./routes/todoRoutes');
 const bodyParser = require('body-parser');
 const logger = require('./middlewares/logger');
 const errorHandler = require('./middlewares/errorHandler');
+const authRouter = require('./routes/authRoutes');
 
 // create an express application
 const app = express();
@@ -22,6 +23,7 @@ app.use(logger);
 
 // then send the request to the matching routes
 app.use('/todos', todoRouter);
+app.use('/auth', authRouter);
 
 // error handling middleware
 app.use(errorHandler);

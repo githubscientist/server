@@ -60,3 +60,14 @@ incoming request -> middleware 1 (ex: request body parser) -> middleware 2 (ex: 
     - logging
     - authentication
     - error handling
+
+Authentication and Authorization:
+
+- Authentication is the process of verifying the identity of a user or system. It ensures that the user is who they claim to be, typically through the use of credentials such as usernames and passwords, tokens, or biometric data. Common authentication methods include:
+  - Basic Authentication
+  - Token-based Authentication (e.g., JWT)
+  - OAuth
+  - Multi-factor Authentication (MFA)
+
+- Authorization is the process of determining whether an authenticated user has the necessary permissions to access a specific resource or perform a particular action. It ensures that users can only access resources and perform actions that they are allowed to, based on their roles or privileges. Common authorization methods include:
+  - Role-based Access Control (RBAC)
