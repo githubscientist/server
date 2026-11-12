@@ -79,6 +79,49 @@ const authController = {
         } catch (error) {
             res.status(500).json({ message: 'login failed', error: error.message });
         }
+    },
+
+    me: async (req, res) => {
+        try {
+            // get the token from the cookies
+            const token = req.cookies.token;
+
+            if (!token) {
+                return res.status(401).json({ message: 'user not logged in' });
+            }
+
+            // verify the token
+            const decoded = jwt.verify(token, JWT_SECRET);
+
+            // get the userid from the decoded token
+            const userId = decoded.userId;
+
+            // get the user details from the database
+            const user = await User.findById(userId).select('-password -__v');
+
+            if (!user) {
+                return res.status(404).json({ message: 'user not found' });
+            }
+
+            res.status(200).json({ user });
+        } catch (error) {
+            res.status(500).json({ message: 'Error fetching user details', error: error.message });
+        }
+    },
+
+    logoutUser: (req, res) => {
+        try {
+            // clear the token cookie
+            res.clearCookie('token', {
+                httpOnly: true,
+                secure: NODE_ENV === 'production', // set to true in production
+                sameSite: 'strict' // adjust based on your needs
+            });
+
+            res.status(200).json({ message: 'logout successful' });
+        } catch (error) {
+            res.status(500).json({ message: 'Error logging out user', error: error.message });
+        }
     }
 }   
 

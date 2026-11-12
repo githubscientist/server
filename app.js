@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const logger = require('./middlewares/logger');
 const errorHandler = require('./middlewares/errorHandler');
 const authRouter = require('./routes/authRoutes');
+const cookieParser = require('cookie-parser');
 
 // create an express application
 const app = express();
@@ -16,6 +17,9 @@ const app = express();
 
 // parse using body-parser library
 app.use(bodyParser.json());
+
+// parse cookies
+app.use(cookieParser());
 
 // request process begins or recieved request
 // log the incoming requests
