@@ -1,5 +1,7 @@
 const User = require('../models/user');
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+const { JWT_SECRET, NODE_ENV } = require('../utils/config');
 
 const authController = {
     registerUser: async (req, res) => {
@@ -35,6 +37,47 @@ const authController = {
             res.status(201).json({ message: 'Registration successful', user });
         } catch (error) {
             res.status(500).json({ message: 'Error in registering user...', error: error.message });
+        }
+    },
+
+    loginUser: async (req, res) => {
+        try {
+            // perform authentication
+            // get the email and password from the request body
+            const { email, password } = req.body;
+
+            // check if the user exists with this email in the system
+            const user = await User.findOne({ email });
+
+            if (!user) {
+                // no such user exists if the user is null or false
+                // return an error response
+                return res.status(500).json({ message: 'user does not exist' });
+            }
+
+            // if we reach here, it means user exists
+            // check if the password matches
+            const doesPasswordMatch = await bcrypt.compare(password, user.password);
+
+            if (!doesPasswordMatch) {
+                // if the password does not match
+                return res.status(500).json({ message: 'password does not match' });
+            }
+
+            // generate a token
+            const token = jwt.sign({ userId: user._id }, JWT_SECRET, { expiresIn: '1h' });
+
+            // store the token as httpOnly cookie in the response
+            res.cookie('token', token, {
+                httpOnly: true,
+                secure: NODE_ENV === 'production', // set to true in production
+                sameSite: 'strict', // adjust based on your needs
+                maxAge: 3600000 // 1 hour in milliseconds
+            });
+
+            res.status(200).json({ message: 'login successful' });
+        } catch (error) {
+            res.status(500).json({ message: 'login failed', error: error.message });
         }
     }
 }   
