@@ -27,6 +27,13 @@ const isAuthenticated = (req, res, next) => {
     }
 }
 
+const allowedRoles = (roles) => {
+    return (req, res, next) => {
+        
+    }
+}
+
 module.exports = {
-    isAuthenticated
+    isAuthenticated,
+    allowedRoles
 }
