@@ -83,18 +83,8 @@ const authController = {
 
     me: async (req, res) => {
         try {
-            // get the token from the cookies
-            const token = req.cookies.token;
-
-            if (!token) {
-                return res.status(401).json({ message: 'user not logged in' });
-            }
-
-            // verify the token
-            const decoded = jwt.verify(token, JWT_SECRET);
-
-            // get the userid from the decoded token
-            const userId = decoded.userId;
+            // get the userid from request object
+            const userId = req.userId;
 
             // get the user details from the database
             const user = await User.findById(userId).select('-password -__v');
