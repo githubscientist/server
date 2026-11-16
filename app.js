@@ -26,8 +26,8 @@ app.use(cookieParser());
 app.use(logger);
 
 // then send the request to the matching routes
-app.use('/todos', todoRouter);
-app.use('/auth', authRouter);
+app.use('/api/v1/todos', todoRouter);
+app.use('/api/v1/auth', authRouter);
 
 // error handling middleware
 app.use(errorHandler);

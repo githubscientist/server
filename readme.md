@@ -71,3 +71,11 @@ Authentication and Authorization:
 
 - Authorization is the process of determining whether an authenticated user has the necessary permissions to access a specific resource or perform a particular action. It ensures that users can only access resources and perform actions that they are allowed to, based on their roles or privileges. Common authorization methods include:
   - Role-based Access Control (RBAC)
+
+Version Numbering:
+
+1.0.0
+
+First - Represents the major release
+Second - Represents the minor release
+Third - Fixes/Patches
