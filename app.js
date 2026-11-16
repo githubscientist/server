@@ -6,9 +6,17 @@ const logger = require('./middlewares/logger');
 const errorHandler = require('./middlewares/errorHandler');
 const authRouter = require('./routes/authRoutes');
 const cookieParser = require('cookie-parser');
+const cors = require('cors');
 
 // create an express application
 const app = express();
+
+// enable cors
+app.use(cors({
+    origin: 'http://localhost:5173',
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true
+}));
 
 // onSuccess -> matching routes
 // onFailure -> return an error response

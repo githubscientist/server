@@ -79,3 +79,7 @@ Version Numbering:
 First - Represents the major release
 Second - Represents the minor release
 Third - Fixes/Patches
+
+CORS:
+
+Cross-Origin Resource Sharing
